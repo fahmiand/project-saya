@@ -15,6 +15,21 @@ describe('HTTP server', () => {
     expect(response.statusCode).toEqual(404)
   })
 
+  describe('when get /', () => {
+    it('should return 200 and hello word', async () => {
+      const server = await createServer({})
+
+      const response = await server.inject({
+        method: 'GET',
+        url: '/'
+      })
+
+      const responseJson = JSON.parse(response.payload)
+      expect(response.statusCode).toEqual(200)
+      expect(responseJson.value).toEqual('hello word!')
+    })
+  })
+
   it('should handle server error correctly', async () => {
     // Arrange
     const requestPayload = {
