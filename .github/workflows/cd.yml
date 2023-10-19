@@ -18,7 +18,7 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         port: ${{ secrets.SSH_PORT }}
         script: |
-          cd ~/project-saya
+          cd project-saya/
           git pull origin master
           npm install
           npm run migrate up
