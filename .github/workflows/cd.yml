@@ -20,6 +20,7 @@ jobs:
         script: |
           cd ~/project-saya
           git pull origin master
+          git add/rm .
           git merge origin master
           npm install
           npm run migrate up
